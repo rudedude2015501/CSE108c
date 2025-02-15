@@ -2,6 +2,7 @@
 #2/13/24#
 #File holding encryption functions for the proejct#
 
+from tarfile import NUL
 from tkinter import W
 import cryptography
 import os
@@ -9,7 +10,7 @@ import os
 import cryptography.hazmat
 import cryptography.hazmat.primitives
 import cryptography.hazmat.primitives.ciphers
-from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes, BlockCipherAlgorithm
 
 #may use given cryptography algorithim given in the library
 #cryptography.hazmat.primitives.ciphers.algorithms.AES
@@ -27,7 +28,30 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 # decryptor = cipher.decryptor()
 # a = decryptor.update(ct) + decryptor.finalize()
 # print(a)
+class encscheme():
 
+    
+    def __init__(self, dir="keys.txt") -> None:
+        self.key,self.iv = generate_key(dir)
+    
+    # function that initalizes the cipher to the keys and iv
+    # Note: we may also place initcipher(dir="keys.txt")
+    ##returns and encrypt and decrypt object from the cryptography library
+    def initcipher(self): #need a func to read key and iv to place into function input
+        self.cipher = Cipher(algorithms.AES(self.key), modes.CBC(self.iv))
+        
+        self.encryptor = self.cipher.encryptor()
+        self.decryptor = self.cipher.decryptor()
+        
+    #message text must be a multiple of the block size
+    def encrypt(self, messagetxt: bytes):
+        #make function that ads some urandom padding based off of if the message is a multiple of the block size found in cipher
+        ciphertext = self.encryptor.update(messagetxt) + self.encryptor.finalize()
+        return ciphertext
+
+    def dencrypt(self, ciphertxt: bytes):
+        messagetxt = self.decryptor.update(ciphertxt) + self.decryptor.finalize()
+        return messagetxt
 
 #generates key and iv for the encryption module and saves them for the user to secure
 def generate_key(dir="keys.txt"):
@@ -41,31 +65,14 @@ def generate_key(dir="keys.txt"):
     
     return key, iv
 
-# function that initalizes the cipher to the keys and iv
-# Note: we may also place initcipher(dir="keys.txt")
-##returns and encrypt and decrypt object from the cryptography library
-def initcipher(key,iv): #need a func to read key and iv to place into function input
-    cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
-    encryptor = cipher.encryptor()
-    decryptor = cipher.decryptor()
-    return encryptor,decryptor
 
 
-#message text must be a multiple of the block size
-def encrypt(messagetxt: bytes, encryptor: cryptography.hazmat.primitives.ciphers.CipherContext):
-    #make function that ads some urandom padding based off of if the message is a multiple of the block size found in cipher
-    ciphertext = encryptor.update(messagetxt) + encryptor.finalize()
-    return ciphertext
+# key,iv = generate_key()
 
-def dencrypt(ciphertxt: bytes, decryptor: cryptography.hazmat.primitives.ciphers.CipherContext):
-    messagetxt = decryptor.update(ciphertxt) + decryptor.finalize()
-    return messagetxt
+# enc,dec = initcipher(key,iv)
 
-key,iv = generate_key()
+# st = encrypt(b"a secret message", enc)
+# print(st)
+# dt = dencrypt(st,dec)
+# print(dt)
 
-enc,dec = initcipher(key,iv)
-
-st = encrypt(b"a secret message", enc)
-print(st)
-dt = dencrypt(st,dec)
-print(dt)
