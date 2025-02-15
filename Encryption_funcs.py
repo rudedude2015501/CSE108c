@@ -1,6 +1,8 @@
 ##Rudy Chavez##
 #2/13/24#
 #File holding encryption functions for the proejct#
+#file uses a cryptography library for easier encryption to allow for more focus on Path ORAM implementation#
+#the site is linked here: https://cryptography.io/en/latest/
 
 from tarfile import NUL
 from tkinter import W
