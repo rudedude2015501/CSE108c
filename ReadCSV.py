@@ -4,6 +4,7 @@
 #each tuple will be apart of a block of size Z which will be apart of a larger tuple for each Node in the Path ORAM impelmentation 
 
 import csv
+from os import close, read
 
 # with open('Crimes12.csv') as csvfile:
 #     reader = csv.reader(csvfile, delimiter=',')
@@ -29,11 +30,38 @@ class datareader():
             print("ERROR: INVALID PATH FORE CSV FILE\n")
             quit(-1)
         self.dir = dir
-        self.index = 0
-        self.reader = csv.reader(self.dir, delimiter=',')
+        self.index = 1
+        
         pass
 
-    #reads the first x rows default of 10
+    #Either make a ge function that opens the file and keeps it open, or just use next on a local cvs.reader thing, because there may be some errors if
+    #object is init but the file is not open
+
+    #could be used to yeild infuvidual blocks
+    # def gen_data(self):
+    #     yield next(self.reader)
+    
+    #used mostly for init the tree
     def readdata(self,rows=10):
+        outlist = []
         with open(self.dir) as csvfile:
-            
+            reader = csv.reader(csvfile, delimiter=',')
+            for i in range(self.index):
+                next(reader)
+            for i in range(rows):
+                #make block object???? NAH JUST KEEP IT AS str or byte value
+                outlist.append(next(reader)) #returns as list
+                self.index += 1
+        csvfile.close()
+        return outlist
+
+    # def readgen(self):
+    #     with open(self.dir) as csvfile:
+    #         reader = csv.reader(csvfile,delimiter=',')
+    #         for l in range(self.index):
+    #             next(reader)
+    #         yield(next(reader))
+    #     csvfile.close()
+    #     self.index += 1
+    
+    
