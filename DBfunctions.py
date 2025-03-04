@@ -55,7 +55,7 @@ def Access(op,addr, data):
     PositionMap[addr] = (numpy.random.randint(1,T.BNode.nodecount))
 
     #look for block in stash and 
-    PathMap = callPath(x)
+    PathMap = callPath(x) #also must search through STASH
     for node in PathMap:#fore each node in the path
         buck = ReadBucket(node) #get the bbucket in the node
         for block in buck: #for eacch block in the bucket
@@ -100,7 +100,8 @@ def ReadBucket(bucket)-> list[T.realBlock]:
     listl = []
     return listl
 
-#write bucket
+#encryptes bucket data, and sends it to server to store along given bucket
+#may need to edit input parameters
 def WriteBucket(buckets):
      pass
 
