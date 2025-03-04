@@ -17,6 +17,7 @@ class BNode():
         self.bucket = []
         self.nodex = 0
         self.nodeID = os.urandom(2)
+        self.nodeheight = 0
         for i in range(0,BNode.blocknum): #fills bucket with dummy blocks
             self.bucket.append(realBlock())
 
@@ -27,7 +28,6 @@ class BNode():
         self.left = node
     def aparent(self,node):
         self.parent = node
-    
 
     #adds block to node, and gives it neccesary info for creation
     def addblock(self, block):
@@ -77,13 +77,14 @@ class OTree():
         n = BNode()
         # stack.append(n.nodeID)
         n.parent = pNode
+        n.nodeheight = level
         if(level < self.height - 1): #to the n-1 level (since we are counting level 0)
             #this method is very similar to a dfs code using preorder going from most left node to most right node
             n.left = self.maketree(level + 1, n)
             # stack.pop()
             n.right = self.maketree(level + 1, n)
             # stack.pop()
-        else: #iff leaf
+        else: #iff leafY
             n.addleaf()
             # self.posmap.append(stack.copy()) #adds path to map
             
@@ -97,7 +98,7 @@ class OTree():
             print("Nothinghere")
     def printree(self, node): #PRINT AS IF DFS
         if self.root != None:
-            print(node.nodex)
+            print(node.nodex, " level: ",node.nodeheight)
             if(node.left or node.right):
                 self.printree(node.left)
                 self.printree(node.right)
@@ -108,4 +109,5 @@ class OTree():
         return self.root    
 
     #the tree should be in charge of receving inputs and giving outputs, and MAYBE scrambling as apart of the access function
-        
+t = OTree(20)
+t.printree(t.root)
