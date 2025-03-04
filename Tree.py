@@ -17,6 +17,10 @@ class BNode():
         self.bucket = []
         self.nodex = 0
         self.nodeID = os.urandom(2)
+        for i in range(0,BNode.blocknum): #fills bucket with dummy blocks
+            self.bucket.append(realBlock())
+
+
     def aright(self,node):
         self.right = node
     def aleft(self,node):
@@ -38,47 +42,51 @@ class BNode():
 
 class realBlock():
     bsize = 32 #bytes aka a lot of bits, hopefully a factor of 16 perhaps each block
-    def __init__(self) -> None:
+    def __init__(self,val=0,data=None) -> None:
         self.addr = id(self)
-        self.leafmap = None #leaf that this block is mapped to
+        self.leafmap = val #leaf that this block is mapped to
         self.data = None #the encrypted data that the client uses
+        if data != None:
+            self.data = data
+        else:
+            self.data = bytes(os.urandom(16))
         #might make each node 32 bytees to make 64 bits, allowing for the block to be used
-    
-    #make dummy block to fill when creating a node
-    def fakeblock(self):
-        #fils data with random stuff
-        #sets leafmap to 0
-        #everything is a dummy block when initalized
-        self.leafmap = 0
-        self.data = bytes(os.urandom(16))
-
-        pass
+    def changeleaf(self,newval):
+        self.leafmap = newval
+    def changedata(self,newdata):
+        self.data = newdata
 
     #makes realblock with given data & padding
 
 #height of tree is L and 2^L leaves (which will be used to map our stuff)
 #idealy we need L = log2(N) in which N is the total number of blocks for the server
 class OTree():
-    def __init__(self, blockNumber) -> None:
-        self.height = int(log2(blockNumber))
-        self.blockNumber = blockNumber
+    def __init__(self, BucketNumber) -> None:
+        #The tree initalizes itself and also makes a positiion map of itself for the client to use
+        self.height = int(log2(BucketNumber))
+        self.BucketNumber = BucketNumber
         self.leafnumber = 2**self.height
+        self.posmap = []
         self.root = self.maketree()
 
     #makes tree and fills with dummy info, stash not being made yet 
-    def maketree(self,level=0, pNode=None, posmap=[]):
-        #if at height level, stop, if not, make left and right child
+    def maketree(self,level=0, pNode=None):
+        # if stack == None:
+        #     stack = []
         
         n = BNode()
+        # stack.append(n.nodeID)
         n.parent = pNode
         if(level < self.height - 1): #to the n-1 level (since we are counting level 0)
+            #this method is very similar to a dfs code using preorder going from most left node to most right node
             n.left = self.maketree(level + 1, n)
+            # stack.pop()
             n.right = self.maketree(level + 1, n)
+            # stack.pop()
         else: #iff leaf
             n.addleaf()
-            ###MAKE FUNCITION HERE###
-            ###Let it return a list of position maps!!
-
+            # self.posmap.append(stack.copy()) #adds path to map
+            
         return n
         
 
@@ -96,25 +104,8 @@ class OTree():
             else:
                 print("leaf")
 
-    # def getNode(self):
-    
-    #     pass#returns node data of given specificiation
-
-    # def trace_map(self, leafnodeID):
-    #     #starts at root, and searches for the given leaf node and returns the node object
-    #     #node object can then be traced to loook for the desired datablock/make a map
-
-    #     pass
-    def getleafs(self):
-        #returns all the leaf nodes avaiable
-        return(BNode.blocknum)
-        
+    def getroot(self):
+        return self.root    
 
     #the tree should be in charge of receving inputs and giving outputs, and MAYBE scrambling as apart of the access function
         
-
-
-
-tree = OTree(10)
-
-tree.printree(tree.root)

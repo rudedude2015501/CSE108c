@@ -42,6 +42,7 @@ class datareader():
     #     yield next(self.reader)
     
     #used mostly for init the tree
+    #returns list of lists of the csv file, reads 10 at a time
     def readdata(self,rows=10):
         outlist = []
         with open(self.dir) as csvfile:
