@@ -42,7 +42,7 @@ class datareader():
     #     yield next(self.reader)
     
     #used mostly for init the tree
-    #returns list of lists of the csv file, reads 10 at a time
+    #returns list of bytes, representing an entry
     def readdata(self,rows=10):
         outlist = []
         with open(self.dir) as csvfile:
@@ -51,7 +51,7 @@ class datareader():
                 next(reader)
             for i in range(rows):
                 #make block object???? NAH JUST KEEP IT AS str or byte value
-                outlist.append(next(reader)) #returns as list
+                outlist.append(bytes(str(next(reader)),encoding='utf8')) #returns as list
                 self.index += 1
         csvfile.close()
         return outlist
@@ -65,4 +65,8 @@ class datareader():
     #     csvfile.close()
     #     self.index += 1
     
-    
+d = datareader("Crimes12.csv")
+L = d.readdata()
+for I in L:
+    print(type(I))
+    print(len(I)) 

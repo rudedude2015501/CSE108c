@@ -2,6 +2,7 @@
 ##Module designed to create a working binary tree
 import os
 from math import exp, log2
+from tkinter import NO
 from tokenize import Exponent
 from turtle import left
 
@@ -43,14 +44,14 @@ class BNode():
         return s
 class realBlock():
     bsize = 32 #bytes aka a lot of bits, hopefully a factor of 16 perhaps each block
-    def __init__(self,addr=0,val=0,data=None) -> None:
+    def __init__(self,addr=0,val=0,data:bytes = b"") -> None: 
         if addr == 0:
             self.addr = id(self)
         else:
             self.addr = addr
         self.leafmap = val #leaf that this block is mapped to
         self.data = None #the encrypted data that the client uses
-        if data != None:
+        if data != b"": #let data be a set of bytes
             self.data = data
         else:
             self.data = os.urandom(16)

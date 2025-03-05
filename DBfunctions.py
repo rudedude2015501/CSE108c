@@ -1,23 +1,39 @@
 #Rudy Chave 
 #3/3/25
 #file contains the access and setup functions for Path ORAM
-from ast import List
 from math import log2
-from sysconfig import get_path
-
+import ReadCSV
 import Tree as T
 import numpy
 
-PositionMap = {} #Holds Blocks and which leaf node mapped to, so [B1] : Leaf X, [B2] : Leaf X
-
-
-
-Stash = [] #list of buckets
+###GLOBALS###
 
 #will have X amount of blocks, and Z=4 block space per bucket therefore we need at least X/Z buckets, say 10 buckets
 # we won't get 10 buckets but it will give us a tree that is fitting for this and the stash
 # either way the height is still log2(10) as an integer
 bucketHeight = int(log2(10)) #should be about 6
+PositionMap = {} #Holds Blocks and which leaf node mapped to, so [B1] : Leaf X, [B2] : Leaf X
+Stash = [] #list of buckets
+
+#reads from Crimes12.csv and returns the blocks, each assigned leaves, evenly distributed
+def ReadBlocks(bucketHeight, blocksWanted):
+    leaves = 2**bucketHeight
+    
+    PositionMap = {}
+    r = ReadCSV.datareader("Crimes12.csv")
+    rawdata = r.readdata(10) #returns 10 byte strings
+    blocks=[]
+    blocks.clear()
+    for row in rawdata:
+        leaf=numpy.random.randint(1,leaves)
+        B = T.realBlock(val=leaf,data=row)
+        blocks.append(B)
+        PositionMap[B.addr] = leaf
+
+    
+    return blocks,PositionMap
+         
+
 ###SERVER OPERATION###
 
 #setup, simply calls for the tree to be made using the Tree.py Otreaa.setup funciton
@@ -29,17 +45,6 @@ def Initialization(entrycardinality:int): #entryBsize, the size of the entries t
 
 
 #CLIENT OPERATION
-# def makePMap(BucketHeight:int):
-#     leaves =  (2**BucketHeight) #x leaves in tree
-#     PathMap = {}
-#     for leaf in range(1,leaves):
-#         Opath = []
-#         for i in range(0,BucketHeight):
-# q
-#     return PathMap
-
-# PathMap = {} #Holds leaf nodes and the path to take them, so Leaf X : path = root/node/node.../Leaf X
-#access() #client operation
 
 #input: operation, address, data if neccesary)
 #output success of operation

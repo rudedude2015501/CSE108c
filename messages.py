@@ -7,6 +7,7 @@ import json
 from numpy import block
 import Tree
 #block_size = 16
+#NEED 2 ^ 9 bytes per data
 def pad(data: bytes, block_size: int = 16) -> bytes:
     padding_length = block_size - (len(data) % block_size)
     # calculates the number of padding bytes required
