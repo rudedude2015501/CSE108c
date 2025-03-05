@@ -1,6 +1,6 @@
 import socket
 import struct
-from block_cipher import Node, to_bytes, from_bytes
+from messages import Node, to_bytes, from_bytes
 class Client:
     def __init__(self, host='127.0.0.1', port=65432):
         self.host = host
@@ -18,7 +18,7 @@ class Client:
 
             # Send the length of the message first
             self.client_socket.send(struct.pack('!I', len(node_bytes)))
-
+ 
             # Send the serialized node
             self.client_socket.send(node_bytes)
 

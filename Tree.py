@@ -43,14 +43,18 @@ class BNode():
         return s
 class realBlock():
     bsize = 32 #bytes aka a lot of bits, hopefully a factor of 16 perhaps each block
-    def __init__(self,val=0,data=None) -> None:
-        self.addr = id(self)
+    def __init__(self,addr=0,val=0,data=None) -> None:
+        if addr == 0:
+            self.addr = id(self)
+        else:
+            self.addr = addr
         self.leafmap = val #leaf that this block is mapped to
         self.data = None #the encrypted data that the client uses
         if data != None:
             self.data = data
         else:
-            self.data = bytes(os.urandom(16))
+            self.data = os.urandom(16)
+
         #might make each node 32 bytees to make 64 bits, allowing for the block to be used
     def changeleaf(self,newval):
         self.leafmap = newval
@@ -131,11 +135,14 @@ class OTree():
             return True
 
     #the tree should be in charge of receving inputs and giving outputs, and MAYBE scrambling as apart of the access function
-t = OTree(20)
-print("height is: ",t.height)
-x = t.getpath(5,t.root)
-print(x)
-x = t.getpath(6,t.root)
-print(x)
-x = t.getpath(1,t.root)
-print(x)
+
+
+#testing
+# t = OTree(20)
+# print("height is: ",t.height)
+# x = t.getpath(5,t.root)
+# print(x)
+# x = t.getpath(6,t.root)
+# print(x)
+# x = t.getpath(1,t.root)
+# print(x)

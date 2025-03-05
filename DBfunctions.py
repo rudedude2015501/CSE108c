@@ -108,5 +108,6 @@ def WriteBucket(buckets):
 #gets the entire path of x leaf, tells server to do a DFS search and return the entire path
 def callPath(leafx:int):
      #calls server to have tree do getPath
+     #see Tree.py -> Otree.getpath
      return []
      pass

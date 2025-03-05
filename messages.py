@@ -1,7 +1,11 @@
+from platform import node
 from tkinter import W
 import base64
 import os
 import json
+
+from numpy import block
+import Tree
 #block_size = 16
 def pad(data: bytes, block_size: int = 16) -> bytes:
     padding_length = block_size - (len(data) % block_size)
@@ -35,6 +39,17 @@ def to_bytes(node) -> bytes:
     # Serialize the dictionary to JSON and encode as bytes
     return json.dumps(node_dict).encode('utf-8')
 
+def list_to_bytes(Blist) -> bytes:
+    """
+    Serializes a Node object into bytes using JSON and Base64.
+    """
+    # Convert the node to a dictionary
+    block_list = [obj.__dict__ for obj in Blist]
+    for d in block_list:
+        d['data'] = base64.b64encode(d['data']).decode('utf-8')
+    # Serialize the dictionary to JSON and encode as bytes
+    return json.dumps(block_list).encode('utf-8')
+
 def from_bytes(data: bytes) -> Node:
     """
     Deserializes bytes into a Node object using JSON and Base64.
@@ -44,3 +59,19 @@ def from_bytes(data: bytes) -> Node:
     # Decode the Base64-encoded data
     node_data = base64.b64decode(node_dict['data'])
     return Node(node_dict['block_id'], node_data, node_dict['leaf_label'])
+
+def list_from_bytes(data: bytes):
+    """
+    Deserializes bytes into a Node object using JSON and Base64.
+    """
+    # Decode the JSON string
+    block_list = json.loads(data.decode('utf-8'))
+    retlist = []
+    # Decode the Base64-encoded data
+    for d in block_list:
+        d['data'] = base64.b64decode(d['data'])
+        retlist.append(Tree.realBlock(d['addr'],d['leafmap'],d['data']))
+    
+    return retlist
+
+#tested and works!!
