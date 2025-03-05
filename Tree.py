@@ -2,7 +2,6 @@
 ##Module designed to create a working binary tree
 import os
 from math import exp, log2
-from tkinter import NO
 from tokenize import Exponent
 from turtle import left
 
@@ -18,6 +17,7 @@ class BNode():
         self.nodex = 0
         self.nodeID = os.urandom(2)
         self.nodeheight = 0
+        
         for i in range(0,BNode.blocknum): #fills bucket with dummy blocks
             self.bucket.append(realBlock())
 
@@ -38,8 +38,9 @@ class BNode():
         self.nodex = BNode.nodecount
         BNode.nodecount += 1
         BNode.leafs.append(self)
-
-
+    def __str__(self) -> str:
+        s = str(self.nodeID) + " level:" + str(self.nodeheight) + " nodex:" + str(self.nodex)
+        return s
 class realBlock():
     bsize = 32 #bytes aka a lot of bits, hopefully a factor of 16 perhaps each block
     def __init__(self,val=0,data=None) -> None:
@@ -108,6 +109,33 @@ class OTree():
     def getroot(self):
         return self.root    
 
+    #does a DFS search for a given leaf and returns the path as a list
+    def getpath(self,leaf:int,node:BNode):
+        leafpath = []
+        leafpath.clear()
+        self.__getpath__(leaf,node,leafpath)
+        return leafpath
+
+    def __getpath__(self,leaf:int,node,leafpath:list):
+        leafpath.append(node.bucket) #us node.nodeID to check
+        if node.nodex != leaf and node.nodex == 0: #if its not the leaf
+            if self.__getpath__(leaf,node.left,leafpath) == True:
+                return True
+            elif self.__getpath__(leaf,node.right,leafpath) == True:
+                return True
+            leafpath.pop()
+        elif node.nodex > 0 and node.nodex != leaf:#if another leaf
+            leafpath.pop()
+            return False
+        elif node.nodex == leaf: #if it is the leaf
+            return True
+
     #the tree should be in charge of receving inputs and giving outputs, and MAYBE scrambling as apart of the access function
 t = OTree(20)
-t.printree(t.root)
+print("height is: ",t.height)
+x = t.getpath(5,t.root)
+print(x)
+x = t.getpath(6,t.root)
+print(x)
+x = t.getpath(1,t.root)
+print(x)
