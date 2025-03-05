@@ -1,6 +1,8 @@
 import socket
 import struct
-
+import os
+from messages import Node, to_bytes, from_bytes
+from Tree import OTree, BNode, realBlock
 class Server:
     def __init__(self, host='127.0.0.1', port=65432):
         self.host = host
@@ -10,6 +12,8 @@ class Server:
         self.server_socket.bind((self.host, self.port))
         self.server_socket.listen(1)
         print(f"Server listening on {self.host}:{self.port}")
+         # Initialize the tree with dummy blocks
+        self.tree = OTree(BucketNumber=10)
 
     def handle_client(self, client_socket):
         try:

@@ -5,7 +5,8 @@ from math import exp, log2
 from tkinter import NO
 from tokenize import Exponent
 from turtle import left
-
+import base64
+import json
 class BNode():
     nodecount =1
     blocknum = 4
@@ -42,6 +43,46 @@ class BNode():
     def __str__(self) -> str:
         s = str(self.nodeID) + " level:" + str(self.nodeheight) + " nodex:" + str(self.nodex)
         return s
+    def serialize_bucket(self):
+        # convert each block to a serializable dictionary
+        serializable_bucket = []
+        for block in self.bucket:
+            block_dict = {
+                'addr': block.addr,
+                'leafmap': block.leafmap,
+                'data': base64.b64encode(block.data).decode('utf-8') if block.data else None
+            }
+            serializable_bucket.append(block_dict)
+        
+        # serialize the list of block dictionaries to a JSON string
+        return json.dumps(serializable_bucket)
+    @classmethod
+    def deserialize_bucket(cls, serialized_bucket):
+        """
+        Deserialize a JSON string back into a list of realBlock objects.
+        """
+        # Parse the JSON string
+        bucket_data = json.loads(serialized_bucket)
+        
+        # Convert back to realBlock objects
+        deserialized_bucket = []
+        for block_dict in bucket_data:
+            block = realBlock(
+                addr=block_dict['addr'], 
+                val=block_dict['leafmap'], 
+                data=base64.b64decode(block_dict['data'].encode('utf-8')) if block_dict['data'] else b""
+            )
+            deserialized_bucket.append(block)
+        
+        return deserialized_bucket
+    def update_bucket_from_serialized(self, serialized_bucket):
+        # clear existing bucket
+        self.bucket.clear()
+        
+        # add deserialized blocks
+        deserialized_blocks = self.deserialize_bucket(serialized_bucket)
+        self.bucket.extend(deserialized_blocks)
+
 class realBlock():
     bsize = 32 #bytes aka a lot of bits, hopefully a factor of 16 perhaps each block
     def __init__(self,addr=0,val=0,data:bytes = b"") -> None: 
