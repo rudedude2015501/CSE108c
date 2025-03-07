@@ -1,13 +1,16 @@
 #Rudy Chave 
 #3/3/25
 #file contains the access and setup functions for Path ORAM
+# DBfunction.py
 from math import log2
 import ReadCSV
 import Tree as T
-#import numpy
+import numpy
 from server import Server
 from Encryption_funcs import encscheme 
 import ast  # for safely converting string to list
+from ReadCSV import datareader
+from Tree import OTree, BNode, realBlock
 ###GLOBALS###
 enc = encscheme() # initialize encscheme()
 #will have X amount of blocks, and Z=4 block space per bucket therefore we need at least X/Z buckets, say 10 buckets
@@ -107,31 +110,55 @@ def Access(op,addr, data):
 
 #read bucket
 #decrypts and reads a given bucket, returns its blocks
-def ReadBucket(bucket_id)-> list[T.realBlock]:
+def ReadBucket(node) -> list[T.realBlock]:
     """
-    Reads an encrypted bucket from the server, decrypts it, and returns the blocks.
-    """
-    encrypted_data = Server.get(f"bucket/{bucket_id}")  # Fetch encrypted bucket data
-    
-    if not encrypted_data:
-        return []  # Return empty list if no data found
+    Reads and decrypts blocks from the given node's bucket.
 
-    enc.initcipher()  # Ensure cipher is initialized
-    decrypted_data = enc.decrypt(encrypted_data)  # Decrypt the bucket
+    :param node: The node containing the bucket to read from
+    :return: List of realBlock objects
+    """
+    enc.initcipher()  # Initialize encryption
+
+    # Fetch serialized bucket data from the server
+    server_instance = Server()  # Create a server instance
+
+    serialized_bucket = server_instance.get(node.nodex)  # Get bucket data from the server
+
     
-    # Convert from string back to list (use ast.literal_eval() for safety)
-    return ast.literal_eval(decrypted_data.decode())  
+    if not serialized_bucket:  # Handle empty or missing bucket
+        return []
+
+    # Deserialize the bucket
+    bucket = node.deserialize_bucket(serialized_bucket)
+
+    # Decrypt each block and return the list of decrypted realBlock objects
+    decrypted_blocks = []
+    for block in bucket.blocks:
+        decrypted_data = enc.decrypt(block.data)
+        if decrypted_data is not None:
+            decrypted_blocks.append(realBlock(data=decrypted_data))
+    
+    return decrypted_blocks
+    
 
 #encryptes bucket data, and sends it to server to store along given bucket
 #may need to edit input parameters
-def WriteBucket(bucket_id, bucket_data):
-    enc.initcipher()  # Ensure cipher is initialized
-    encrypted_data = enc.encrypt(str(bucket_data).encode())  # Encrypt bucket data
-    Server.put(f"bucket/{bucket_id}", encrypted_data)  # Store encrypted data
+def WriteBucket(node, SendData):
+    enc.initcipher()  # Initialize encryption
+    server_instance = Server() 
+    # Fill the bucket with the new SendData while maintaining the limit
+    node.bucket.clear()
+    for block in SendData[:BNode.blocknum]:  # Ensure we only store up to blocknum
+        encrypted_data = enc.encrypt(block.data)
+        block.data = encrypted_data
+        node.bucket.append(block)
+    
+    # Serialize the updated bucket
+    serialized_bucket = node.serialize_bucket()
+    
+    # Store the bucket data on the server
+    server_instance.set(node.nodex, serialized_bucket)  
 
-#gets the entire path of x leaf, tells server to do a DFS search and return the entire path
-def callPath(leafx:int):
-     #calls server to have tree do getPath
-     #see Tree.py -> Otree.getpath
-    path = Server.get(f"path/{leafx}")  # Get DFS path from server
-    return path if path else []  # Return path or empty list
+
+
+
