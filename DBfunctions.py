@@ -39,8 +39,8 @@ def ReadBlocks(bucketHeight, blocksWanted):
 #setup, simply calls for the tree to be made using the Tree.py Otreaa.setup funciton
 #input: block size output: object to the tree
 #returs a tree function to be used, and a file to store the data
-def Initialization(entrycardinality:int): #entryBsize, the size of the entries to the nearest power of 2, entrycardinality: the amount of entries to be proccesed
-    Rpath = T.OTree(entrycardinality/4) #four blocks per bucket, therfore the total amount of blocks divded by four
+def Initialization(totalBlocks:int): #entryBsize, the size of the entries to the nearest power of 2, entrycardinality: the amount of entries to be proccesed
+    Rpath = T.OTree(totalBlocks/4) #four blocks per bucket, therfore the total amount of blocks divded by four
     return Rpath
 
 
@@ -66,10 +66,14 @@ def Access(op,addr, data):
         for block in buck: #for eacch block in the bucket
             Stash.append(block) #add it to stash 
     
-    for block in Stash:
+    for block in Stash: #seraches stash along with requested path
             if block.addr == addr:
-                 Block = block
-                 break
+                Block = block
+                break
+            else:
+                Block = None
+    if Block == None: #if block is not found in stash or tree
+        return -1
     #write operations 
     if op == "w": 
          Block.changedata(data)
