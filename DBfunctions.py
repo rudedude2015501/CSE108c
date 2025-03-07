@@ -5,9 +5,11 @@ from math import log2
 import ReadCSV
 import Tree as T
 import numpy
-
+from server import Server
+from Encryption_funcs import encscheme 
+import ast  # for safely converting string to list
 ###GLOBALS###
-
+enc = encscheme() # initialize encscheme()
 #will have X amount of blocks, and Z=4 block space per bucket therefore we need at least X/Z buckets, say 10 buckets
 # we won't get 10 buckets but it will give us a tree that is fitting for this and the stash
 # either way the height is still log2(10) as an integer
@@ -105,18 +107,31 @@ def Access(op,addr, data):
 
 #read bucket
 #decrypts and reads a given bucket, returns its blocks
-def ReadBucket(bucket)-> list[T.realBlock]:
-    listl = []
-    return listl
+def ReadBucket(bucket_id)-> list[T.realBlock]:
+    """
+    Reads an encrypted bucket from the server, decrypts it, and returns the blocks.
+    """
+    encrypted_data = Server.get(f"bucket/{bucket_id}")  # Fetch encrypted bucket data
+    
+    if not encrypted_data:
+        return []  # Return empty list if no data found
+
+    enc.initcipher()  # Ensure cipher is initialized
+    decrypted_data = enc.decrypt(encrypted_data)  # Decrypt the bucket
+    
+    # Convert from string back to list (use ast.literal_eval() for safety)
+    return ast.literal_eval(decrypted_data.decode())  
 
 #encryptes bucket data, and sends it to server to store along given bucket
 #may need to edit input parameters
-def WriteBucket(buckets):
-     pass
+def WriteBucket(bucket_id, bucket_data):
+    enc.initcipher()  # Ensure cipher is initialized
+    encrypted_data = enc.encrypt(str(bucket_data).encode())  # Encrypt bucket data
+    Server.put(f"bucket/{bucket_id}", encrypted_data)  # Store encrypted data
 
 #gets the entire path of x leaf, tells server to do a DFS search and return the entire path
 def callPath(leafx:int):
      #calls server to have tree do getPath
      #see Tree.py -> Otree.getpath
-     return []
-     pass
+    path = Server.get(f"path/{leafx}")  # Get DFS path from server
+    return path if path else []  # Return path or empty list
