@@ -4,7 +4,7 @@ import base64
 import os
 import json
 
-from numpy import block
+#from numpy import block
 import Tree
 #block_size = 16
 #NEED 2 ^ 9 bytes per data
