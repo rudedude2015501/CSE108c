@@ -4,7 +4,7 @@
 from math import log2
 import ReadCSV
 import Tree as T
-import numpy
+#import numpy
 from server import Server
 from Encryption_funcs import encscheme 
 import ast  # for safely converting string to list
