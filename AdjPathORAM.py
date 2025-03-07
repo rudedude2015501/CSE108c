@@ -23,9 +23,14 @@ class AdjORAM():
     def getPath(self, leaf:int, node:T.BNode,bitval:int):
         oram = self.ORAMS[bitval]
         return oram.getpath(leaf,node)
+    
 #Object to compile blocks to include the leaked bits
 class AdjBlocks(T.realBlock):
     def __init__(self, addr=0, val=0, data: bytes = b"",bitval:int = 0) -> None:
         super().__init__(addr, val, data)
         self.bitval = bitval
 
+#parse info such that we can find the adjustable bit at MSB
+def splicebits():
+    
+    pass

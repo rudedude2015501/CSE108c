@@ -58,10 +58,13 @@ class BNode():
         return json.dumps(serializable_bucket)
     @classmethod
     def deserialize_bucket(cls, serialized_bucket):
-        # parse the JSON string
+        """
+        Deserialize a JSON string back into a list of realBlock objects.
+        """
+        # Parse the JSON string
         bucket_data = json.loads(serialized_bucket)
         
-        # convert back to realBlock objects
+        # Convert back to realBlock objects
         deserialized_bucket = []
         for block_dict in bucket_data:
             block = realBlock(
