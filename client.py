@@ -41,14 +41,14 @@ class Client:
         """
         self.client_socket.close()
 
-if __name__ == "__main__":
-    client = Client()
+#if __name__ == "__main__":
+#    client = Client()
 
     # Create a node
-    node = Node(block_id=123, data=b"hello, world!", leaf_label=456)
+#    node = Node(block_id=123, data=b"hello, world!", leaf_label=456)
 
     # Send the node to the server
-    response_node = client.send_node(node)
-    print("Server response:", response_node)
+#    response_node = client.send_node(node)
+#    print("Server response:", response_node)
 
-    client.close()
+#    client.close()

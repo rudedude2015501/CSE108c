@@ -68,6 +68,6 @@ class Server:
             print(f"Connected to client at {addr}")
             self.handle_client(client_socket)
 
-if __name__ == "__main__":
-    server = Server()
-    server.start()
+#if __name__ == "__main__":
+#    server = Server()
+#    server.start()
