@@ -85,12 +85,12 @@ class BNode():
 
 class realBlock():
     bsize = 32 #bytes aka a lot of bits, hopefully a factor of 16 perhaps each block
-    def __init__(self,addr=0,val=0,data:bytes = b"") -> None: 
+    def __init__(self,addr=0,leafmap=0,data:bytes = b"") -> None: 
         if addr == 0:
             self.addr = id(self)
         else:
             self.addr = addr
-        self.leafmap = val #leaf that this block is mapped to
+        self.leafmap = leafmap #leaf that this block is mapped to
         self.data = None #the encrypted data that the client uses
         if data != b"": #let data be a set of bytes
             self.data = data
@@ -98,8 +98,9 @@ class realBlock():
             self.data = os.urandom(16)
 
         #might make each node 32 bytees to make 64 bits, allowing for the block to be used
-    def changeleaf(self,newval):
-        self.leafmap = newval
+    def changeleaf(self,new_leaf):
+        self.leafmap = new_leaf
+    # changed .leafmap = val to leafmap = leafmap
     def changedata(self,newdata):
         self.data = newdata
 
@@ -177,7 +178,20 @@ class OTree():
             return True
 
     #the tree should be in charge of receving inputs and giving outputs, and MAYBE scrambling as apart of the access function
-
+    def get_path(self, leaf: int) -> list[BNode]:
+        """Returns path from root to the specified leaf node."""
+        path = []
+        current = self.root
+        binary_path = format(leaf - 1, f'0{self.height}b')  # 0-based index
+        for bit in binary_path:
+            path.append(current)
+            current = current.left if bit == '0' else current.right
+        path.append(current)  # Include the leaf node
+        return path
+    def is_in_subtree(self, target_leaf: int, subtree_root: BNode) -> bool:
+        """Checks if target_leaf is in the subtree rooted at subtree_root."""
+        target_path = self.get_path(target_leaf)
+        return subtree_root in target_path
 
 #testing
 # t = OTree(20)

@@ -122,7 +122,7 @@ def ReadBucket(node) -> list[T.realBlock]:
     # Fetch serialized bucket data from the server
     server_instance = Server()  # Create a server instance
 
-    serialized_bucket = server_instance.get(node.nodex)  # Get bucket data from the server
+    serialized_bucket = server_instance.get(node.nodeID)
 
     
     if not serialized_bucket:  # Handle empty or missing bucket
@@ -157,8 +157,10 @@ def WriteBucket(node, SendData):
     serialized_bucket = node.serialize_bucket()
     
     # Store the bucket data on the server
-    server_instance.set(node.nodex, serialized_bucket)  
+    server_instance.set(node.nodeID, serialized_bucket)
 
-
+def callPath(leaf: int, tree: OTree) -> list[BNode]:
+    """Fetch path using OTree's structure."""
+    return tree.get_path(leaf)
 
 

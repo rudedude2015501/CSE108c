@@ -1,54 +1,76 @@
 import socket
 import struct
-from messages import Node, to_bytes, from_bytes
+import json
+from Tree import realBlock
+
 class Client:
     def __init__(self, host='127.0.0.1', port=65432):
         self.host = host
         self.port = port
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.client_socket.connect((self.host, self.port))
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.socket.connect((self.host, self.port))
 
-    def send_node(self, node):
-        """
-        Sends a Node object to the server and receives a response.
-        """
-        try:
-            # Serialize the node into bytes
-            node_bytes = to_bytes(node)
+    def _recv_all(self, sock, n):
+        """Helper to read exactly n bytes from socket"""
+        data = bytearray()
+        while len(data) < n:
+            packet = sock.recv(n - len(data))
+            if not packet:
+                return None
+            data.extend(packet)
+        return data
 
-            # Send the length of the message first
-            self.client_socket.send(struct.pack('!I', len(node_bytes)))
- 
-            # Send the serialized node
-            self.client_socket.send(node_bytes)
+    def send_request(self, operation: str, bucket_id: str, data=None):
+        # Serialize only necessary fields
+        if data:
+            serialized_data = []
+            for block in data:
+                serialized_block = {
+                    'addr': block.addr,
+                    'leafmap': block.leafmap,
+                    'data': block.data.hex()  # Convert bytes to hex string for JSON
+                }
+                serialized_data.append(serialized_block)
+            request_data = json.dumps(serialized_data)
+        else:
+            request_data = None
 
-            # Receive the length of the response
-            response_length_bytes = self.client_socket.recv(4)
-            response_length = struct.unpack('!I', response_length_bytes)[0]
+        request = {
+            'operation': operation,
+            'bucket_id': bucket_id,
+            'data': request_data
+        }
+        request_bytes = json.dumps(request).encode()
+        
+        # Send request
+        self.socket.send(struct.pack('!I', len(request_bytes)))  # Length first
+        self.socket.send(request_bytes)                         # Then data
 
-            # Receive the response
-            response_bytes = self.client_socket.recv(response_length)
-
-            # Deserialize the response into a Node object
-            return from_bytes(response_bytes)
-        except Exception as e:
-            print(f"Error: {e}")
-            return None
+        # Get response
+        raw_resplen = self._recv_all(self.socket, 4)
+        if not raw_resplen:
+            raise ConnectionError("Server disconnected")
+        resp_len = struct.unpack('!I', raw_resplen)[0]
+        return self._recv_all(self.socket, resp_len)
 
     def close(self):
-        """
-        Closes the client connection.
-        """
-        self.client_socket.close()
+        self.socket.close()
 
-#if __name__ == "__main__":
-#    client = Client()
+def test_path_oram():
+    client = Client()
+    
+    blocks = [realBlock(addr=i, leafmap=i%16+1, data=f"Data{i}".encode()) 
+              for i in range(1, 11)]
+    
+    # Test write
+    for block in blocks:
+        client.send_request('write', str(block.leafmap), [block])  # Changed .leafmap to .val
+    
+    # Test read
+    response = client.send_request('read', '5')
+    print("Blocks in leaf 5:", json.loads(response.decode()))
+    
+    client.close()
 
-    # Create a node
-#    node = Node(block_id=123, data=b"hello, world!", leaf_label=456)
-
-    # Send the node to the server
-#    response_node = client.send_node(node)
-#    print("Server response:", response_node)
-
-#    client.close()
+if __name__ == "__main__":
+    test_path_oram()
