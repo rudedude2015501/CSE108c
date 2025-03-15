@@ -1,0 +1,7 @@
+plingutil_include = [
+    '.'
+]
+
+plingutil_dep = declare_dependency(
+    include_directories: plingutil_include,
+)

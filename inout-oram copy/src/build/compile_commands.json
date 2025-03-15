@@ -1,0 +1,68 @@
+[
+  {
+    "directory": "/Users/abbykaur/Downloads/inout-oram copy/src/build",
+    "command": "c++ -Ilibseal.a.p -I. -I.. -I../seal -Iutils -I../utils -Icore -I../core -I../thirdparty/external/tomlplusplus -Ithreadpool -I../threadpool -I/opt/homebrew/Cellar/openssl@3/3.4.1/include -I/opt/homebrew/Cellar/spdlog/1.15.1/include -I/opt/homebrew/Cellar/fmt/11.1.4/include -fdiagnostics-color=always -Wall -Winvalid-pch -Wextra -Wpedantic -std=c++20 -O0 -g -Wno-unused-parameter -Wno-unused-variable -Wno-unused-private-field -DSPDLOG_SHARED_LIB -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -MD -MQ libseal.a.p/threadpool_synch.cpp.o -MF libseal.a.p/threadpool_synch.cpp.o.d -o libseal.a.p/threadpool_synch.cpp.o -c ../threadpool/synch.cpp",
+    "file": "../threadpool/synch.cpp",
+    "output": "libseal.a.p/threadpool_synch.cpp.o"
+  },
+  {
+    "directory": "/Users/abbykaur/Downloads/inout-oram copy/src/build",
+    "command": "c++ -Ilibseal.a.p -I. -I.. -I../seal -Iutils -I../utils -Icore -I../core -I../thirdparty/external/tomlplusplus -Ithreadpool -I../threadpool -I/opt/homebrew/Cellar/openssl@3/3.4.1/include -I/opt/homebrew/Cellar/spdlog/1.15.1/include -I/opt/homebrew/Cellar/fmt/11.1.4/include -fdiagnostics-color=always -Wall -Winvalid-pch -Wextra -Wpedantic -std=c++20 -O0 -g -Wno-unused-parameter -Wno-unused-variable -Wno-unused-private-field -DSPDLOG_SHARED_LIB -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -MD -MQ libseal.a.p/threadpool_threadpool.cpp.o -MF libseal.a.p/threadpool_threadpool.cpp.o.d -o libseal.a.p/threadpool_threadpool.cpp.o -c ../threadpool/threadpool.cpp",
+    "file": "../threadpool/threadpool.cpp",
+    "output": "libseal.a.p/threadpool_threadpool.cpp.o"
+  },
+  {
+    "directory": "/Users/abbykaur/Downloads/inout-oram copy/src/build",
+    "command": "c++ -Itest_seal.p -I. -I.. -I../seal -Icore -I../core -I../thirdparty/external/tomlplusplus -Ithreadpool -I../threadpool -Iutils -I../utils -I/opt/homebrew/Cellar/openssl@3/3.4.1/include -I/opt/homebrew/Cellar/spdlog/1.15.1/include -I/opt/homebrew/Cellar/fmt/11.1.4/include -fvisibility=default -fdiagnostics-color=always -Wall -Winvalid-pch -Wextra -Wpedantic -std=c++20 -O0 -g -Wno-unused-parameter -Wno-unused-variable -Wno-unused-private-field -DSPDLOG_SHARED_LIB -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DENABLE_LOGGING -Wno-unused-parameter -Wno-unused-variable -Wno-unused-private-field -MD -MQ test_seal.p/seal_test_test_seal.cpp.o -MF test_seal.p/seal_test_test_seal.cpp.o.d -o test_seal.p/seal_test_test_seal.cpp.o -c ../seal/test/test_seal.cpp",
+    "file": "../seal/test/test_seal.cpp",
+    "output": "test_seal.p/seal_test_test_seal.cpp.o"
+  },
+  {
+    "directory": "/Users/abbykaur/Downloads/inout-oram copy/src/build",
+    "command": "c++ -Itest_seal.p -I. -I.. -I../seal -Icore -I../core -I../thirdparty/external/tomlplusplus -Ithreadpool -I../threadpool -Iutils -I../utils -I/opt/homebrew/Cellar/openssl@3/3.4.1/include -I/opt/homebrew/Cellar/spdlog/1.15.1/include -I/opt/homebrew/Cellar/fmt/11.1.4/include -fvisibility=default -fdiagnostics-color=always -Wall -Winvalid-pch -Wextra -Wpedantic -std=c++20 -O0 -g -Wno-unused-parameter -Wno-unused-variable -Wno-unused-private-field -DSPDLOG_SHARED_LIB -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DENABLE_LOGGING -Wno-unused-parameter -Wno-unused-variable -Wno-unused-private-field -MD -MQ test_seal.p/threadpool_synch.cpp.o -MF test_seal.p/threadpool_synch.cpp.o.d -o test_seal.p/threadpool_synch.cpp.o -c ../threadpool/synch.cpp",
+    "file": "../threadpool/synch.cpp",
+    "output": "test_seal.p/threadpool_synch.cpp.o"
+  },
+  {
+    "directory": "/Users/abbykaur/Downloads/inout-oram copy/src/build",
+    "command": "c++ -Itest_seal.p -I. -I.. -I../seal -Icore -I../core -I../thirdparty/external/tomlplusplus -Ithreadpool -I../threadpool -Iutils -I../utils -I/opt/homebrew/Cellar/openssl@3/3.4.1/include -I/opt/homebrew/Cellar/spdlog/1.15.1/include -I/opt/homebrew/Cellar/fmt/11.1.4/include -fvisibility=default -fdiagnostics-color=always -Wall -Winvalid-pch -Wextra -Wpedantic -std=c++20 -O0 -g -Wno-unused-parameter -Wno-unused-variable -Wno-unused-private-field -DSPDLOG_SHARED_LIB -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DENABLE_LOGGING -Wno-unused-parameter -Wno-unused-variable -Wno-unused-private-field -MD -MQ test_seal.p/threadpool_threadpool.cpp.o -MF test_seal.p/threadpool_threadpool.cpp.o.d -o test_seal.p/threadpool_threadpool.cpp.o -c ../threadpool/threadpool.cpp",
+    "file": "../threadpool/threadpool.cpp",
+    "output": "test_seal.p/threadpool_threadpool.cpp.o"
+  },
+  {
+    "directory": "/Users/abbykaur/Downloads/inout-oram copy/src/build",
+    "command": "c++ -Itest/test_server.p -Itest -I../test -Icore -I../core -I../thirdparty/external/tomlplusplus -Ithreadpool -I../threadpool -Iutils -I../utils -I/opt/homebrew/Cellar/openssl@3/3.4.1/include -I/opt/homebrew/Cellar/spdlog/1.15.1/include -I/opt/homebrew/Cellar/fmt/11.1.4/include -fvisibility=default -fdiagnostics-color=always -Wall -Winvalid-pch -Wextra -Wpedantic -std=c++20 -O0 -g -Wno-unused-parameter -Wno-unused-variable -Wno-unused-private-field -DSPDLOG_SHARED_LIB -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -MD -MQ test/test_server.p/app_test_server.cpp.o -MF test/test_server.p/app_test_server.cpp.o.d -o test/test_server.p/app_test_server.cpp.o -c ../test/app_test_server.cpp",
+    "file": "../test/app_test_server.cpp",
+    "output": "test/test_server.p/app_test_server.cpp.o"
+  },
+  {
+    "directory": "/Users/abbykaur/Downloads/inout-oram copy/src/build",
+    "command": "c++ -Itest/test_server.p -Itest -I../test -Icore -I../core -I../thirdparty/external/tomlplusplus -Ithreadpool -I../threadpool -Iutils -I../utils -I/opt/homebrew/Cellar/openssl@3/3.4.1/include -I/opt/homebrew/Cellar/spdlog/1.15.1/include -I/opt/homebrew/Cellar/fmt/11.1.4/include -fvisibility=default -fdiagnostics-color=always -Wall -Winvalid-pch -Wextra -Wpedantic -std=c++20 -O0 -g -Wno-unused-parameter -Wno-unused-variable -Wno-unused-private-field -DSPDLOG_SHARED_LIB -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -MD -MQ test/test_server.p/.._threadpool_synch.cpp.o -MF test/test_server.p/.._threadpool_synch.cpp.o.d -o test/test_server.p/.._threadpool_synch.cpp.o -c ../threadpool/synch.cpp",
+    "file": "../threadpool/synch.cpp",
+    "output": "test/test_server.p/.._threadpool_synch.cpp.o"
+  },
+  {
+    "directory": "/Users/abbykaur/Downloads/inout-oram copy/src/build",
+    "command": "c++ -Itest/test_server.p -Itest -I../test -Icore -I../core -I../thirdparty/external/tomlplusplus -Ithreadpool -I../threadpool -Iutils -I../utils -I/opt/homebrew/Cellar/openssl@3/3.4.1/include -I/opt/homebrew/Cellar/spdlog/1.15.1/include -I/opt/homebrew/Cellar/fmt/11.1.4/include -fvisibility=default -fdiagnostics-color=always -Wall -Winvalid-pch -Wextra -Wpedantic -std=c++20 -O0 -g -Wno-unused-parameter -Wno-unused-variable -Wno-unused-private-field -DSPDLOG_SHARED_LIB -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -MD -MQ test/test_server.p/.._threadpool_threadpool.cpp.o -MF test/test_server.p/.._threadpool_threadpool.cpp.o.d -o test/test_server.p/.._threadpool_threadpool.cpp.o -c ../threadpool/threadpool.cpp",
+    "file": "../threadpool/threadpool.cpp",
+    "output": "test/test_server.p/.._threadpool_threadpool.cpp.o"
+  },
+  {
+    "directory": "/Users/abbykaur/Downloads/inout-oram copy/src/build",
+    "command": "c++ -Itest/test_pathoram.p -Itest -I../test -Icore -I../core -I../thirdparty/external/tomlplusplus -Ithreadpool -I../threadpool -Iutils -I../utils -I/opt/homebrew/Cellar/openssl@3/3.4.1/include -I/opt/homebrew/Cellar/spdlog/1.15.1/include -I/opt/homebrew/Cellar/fmt/11.1.4/include -fvisibility=default -fdiagnostics-color=always -Wall -Winvalid-pch -Wextra -Wpedantic -std=c++20 -O0 -g -Wno-unused-parameter -Wno-unused-variable -Wno-unused-private-field -DSPDLOG_SHARED_LIB -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -MD -MQ test/test_pathoram.p/app_test_base_oram.cpp.o -MF test/test_pathoram.p/app_test_base_oram.cpp.o.d -o test/test_pathoram.p/app_test_base_oram.cpp.o -c ../test/app_test_base_oram.cpp",
+    "file": "../test/app_test_base_oram.cpp",
+    "output": "test/test_pathoram.p/app_test_base_oram.cpp.o"
+  },
+  {
+    "directory": "/Users/abbykaur/Downloads/inout-oram copy/src/build",
+    "command": "c++ -Itest/test_pathoram.p -Itest -I../test -Icore -I../core -I../thirdparty/external/tomlplusplus -Ithreadpool -I../threadpool -Iutils -I../utils -I/opt/homebrew/Cellar/openssl@3/3.4.1/include -I/opt/homebrew/Cellar/spdlog/1.15.1/include -I/opt/homebrew/Cellar/fmt/11.1.4/include -fvisibility=default -fdiagnostics-color=always -Wall -Winvalid-pch -Wextra -Wpedantic -std=c++20 -O0 -g -Wno-unused-parameter -Wno-unused-variable -Wno-unused-private-field -DSPDLOG_SHARED_LIB -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -MD -MQ test/test_pathoram.p/.._threadpool_synch.cpp.o -MF test/test_pathoram.p/.._threadpool_synch.cpp.o.d -o test/test_pathoram.p/.._threadpool_synch.cpp.o -c ../threadpool/synch.cpp",
+    "file": "../threadpool/synch.cpp",
+    "output": "test/test_pathoram.p/.._threadpool_synch.cpp.o"
+  },
+  {
+    "directory": "/Users/abbykaur/Downloads/inout-oram copy/src/build",
+    "command": "c++ -Itest/test_pathoram.p -Itest -I../test -Icore -I../core -I../thirdparty/external/tomlplusplus -Ithreadpool -I../threadpool -Iutils -I../utils -I/opt/homebrew/Cellar/openssl@3/3.4.1/include -I/opt/homebrew/Cellar/spdlog/1.15.1/include -I/opt/homebrew/Cellar/fmt/11.1.4/include -fvisibility=default -fdiagnostics-color=always -Wall -Winvalid-pch -Wextra -Wpedantic -std=c++20 -O0 -g -Wno-unused-parameter -Wno-unused-variable -Wno-unused-private-field -DSPDLOG_SHARED_LIB -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -MD -MQ test/test_pathoram.p/.._threadpool_threadpool.cpp.o -MF test/test_pathoram.p/.._threadpool_threadpool.cpp.o.d -o test/test_pathoram.p/.._threadpool_threadpool.cpp.o -c ../threadpool/threadpool.cpp",
+    "file": "../threadpool/threadpool.cpp",
+    "output": "test/test_pathoram.p/.._threadpool_threadpool.cpp.o"
+  }
+]

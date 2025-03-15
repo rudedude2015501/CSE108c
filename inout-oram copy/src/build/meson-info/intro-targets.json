@@ -1,0 +1,327 @@
+[
+  {
+    "name": "seal",
+    "id": "seal@sta",
+    "type": "static library",
+    "defined_in": "/Users/abbykaur/Downloads/inout-oram copy/src/meson.build",
+    "filename": [
+      "/Users/abbykaur/Downloads/inout-oram copy/src/build/libseal.a"
+    ],
+    "build_by_default": true,
+    "target_sources": [
+      {
+        "language": "cpp",
+        "machine": "host",
+        "compiler": [
+          "c++"
+        ],
+        "parameters": [
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/libseal.a.p",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/seal",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/utils",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/utils",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/core",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/core",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/thirdparty/external/tomlplusplus",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/threadpool",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/threadpool",
+          "-I/opt/homebrew/Cellar/openssl@3/3.4.1/include",
+          "-I/opt/homebrew/Cellar/spdlog/1.15.1/include",
+          "-I/opt/homebrew/Cellar/fmt/11.1.4/include",
+          "-fdiagnostics-color=always",
+          "-Wall",
+          "-Winvalid-pch",
+          "-Wextra",
+          "-Wpedantic",
+          "-std=c++20",
+          "-O0",
+          "-g",
+          "-Wno-unused-parameter",
+          "-Wno-unused-variable",
+          "-Wno-unused-private-field",
+          "-DSPDLOG_SHARED_LIB",
+          "-DSPDLOG_COMPILED_LIB",
+          "-DSPDLOG_FMT_EXTERNAL"
+        ],
+        "sources": [
+          "/Users/abbykaur/Downloads/inout-oram copy/src/threadpool/./synch.cpp",
+          "/Users/abbykaur/Downloads/inout-oram copy/src/threadpool/./threadpool.cpp"
+        ],
+        "generated_sources": [],
+        "unity_sources": []
+      },
+      {
+        "linker": [
+          "ar"
+        ],
+        "parameters": [
+          "csr"
+        ]
+      }
+    ],
+    "extra_files": [],
+    "subproject": null,
+    "dependencies": [
+      "openssl",
+      "threads",
+      "spdlog"
+    ],
+    "depends": [],
+    "installed": false
+  },
+  {
+    "name": "test_seal",
+    "id": "test_seal@exe",
+    "type": "executable",
+    "defined_in": "/Users/abbykaur/Downloads/inout-oram copy/src/meson.build",
+    "filename": [
+      "/Users/abbykaur/Downloads/inout-oram copy/src/build/test_seal"
+    ],
+    "build_by_default": true,
+    "target_sources": [
+      {
+        "language": "cpp",
+        "machine": "host",
+        "compiler": [
+          "c++"
+        ],
+        "parameters": [
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/test_seal.p",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/seal",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/core",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/core",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/thirdparty/external/tomlplusplus",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/threadpool",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/threadpool",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/utils",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/utils",
+          "-I/opt/homebrew/Cellar/openssl@3/3.4.1/include",
+          "-I/opt/homebrew/Cellar/spdlog/1.15.1/include",
+          "-I/opt/homebrew/Cellar/fmt/11.1.4/include",
+          "-fvisibility=default",
+          "-fdiagnostics-color=always",
+          "-Wall",
+          "-Winvalid-pch",
+          "-Wextra",
+          "-Wpedantic",
+          "-std=c++20",
+          "-O0",
+          "-g",
+          "-Wno-unused-parameter",
+          "-Wno-unused-variable",
+          "-Wno-unused-private-field",
+          "-DSPDLOG_SHARED_LIB",
+          "-DSPDLOG_COMPILED_LIB",
+          "-DSPDLOG_FMT_EXTERNAL",
+          "-DENABLE_LOGGING",
+          "-Wno-unused-parameter",
+          "-Wno-unused-variable",
+          "-Wno-unused-private-field"
+        ],
+        "sources": [
+          "/Users/abbykaur/Downloads/inout-oram copy/src/seal/test/test_seal.cpp",
+          "/Users/abbykaur/Downloads/inout-oram copy/src/threadpool/./synch.cpp",
+          "/Users/abbykaur/Downloads/inout-oram copy/src/threadpool/./threadpool.cpp"
+        ],
+        "generated_sources": [],
+        "unity_sources": []
+      },
+      {
+        "linker": [
+          "c++"
+        ],
+        "parameters": [
+          "-Wl,-dead_strip_dylibs",
+          "-Wl,-headerpad_max_install_names",
+          "-Wl,-rpath,/opt/homebrew/Cellar/openssl@3/3.4.1/lib",
+          "-Wl,-rpath,/opt/homebrew/Cellar/spdlog/1.15.1/lib",
+          "-Wl,-rpath,/opt/homebrew/Cellar/fmt/11.1.4/lib",
+          "libseal.a",
+          "/opt/homebrew/Cellar/openssl@3/3.4.1/lib/libssl.dylib",
+          "/opt/homebrew/Cellar/openssl@3/3.4.1/lib/libcrypto.dylib",
+          "/opt/homebrew/Cellar/spdlog/1.15.1/lib/libspdlog.dylib",
+          "-pthread",
+          "/opt/homebrew/Cellar/fmt/11.1.4/lib/libfmt.dylib"
+        ]
+      }
+    ],
+    "extra_files": [],
+    "subproject": null,
+    "dependencies": [
+      "openssl",
+      "threads",
+      "spdlog"
+    ],
+    "depends": [],
+    "win_subsystem": "console",
+    "installed": false
+  },
+  {
+    "name": "test_server",
+    "id": "9f86d08@@test_server@exe",
+    "type": "executable",
+    "defined_in": "/Users/abbykaur/Downloads/inout-oram copy/src/test/meson.build",
+    "filename": [
+      "/Users/abbykaur/Downloads/inout-oram copy/src/build/test/test_server"
+    ],
+    "build_by_default": true,
+    "target_sources": [
+      {
+        "language": "cpp",
+        "machine": "host",
+        "compiler": [
+          "c++"
+        ],
+        "parameters": [
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/test/test_server.p",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/test",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/test",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/core",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/core",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/thirdparty/external/tomlplusplus",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/threadpool",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/threadpool",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/utils",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/utils",
+          "-I/opt/homebrew/Cellar/openssl@3/3.4.1/include",
+          "-I/opt/homebrew/Cellar/spdlog/1.15.1/include",
+          "-I/opt/homebrew/Cellar/fmt/11.1.4/include",
+          "-fvisibility=default",
+          "-fdiagnostics-color=always",
+          "-Wall",
+          "-Winvalid-pch",
+          "-Wextra",
+          "-Wpedantic",
+          "-std=c++20",
+          "-O0",
+          "-g",
+          "-Wno-unused-parameter",
+          "-Wno-unused-variable",
+          "-Wno-unused-private-field",
+          "-DSPDLOG_SHARED_LIB",
+          "-DSPDLOG_COMPILED_LIB",
+          "-DSPDLOG_FMT_EXTERNAL"
+        ],
+        "sources": [
+          "/Users/abbykaur/Downloads/inout-oram copy/src/test/app_test_server.cpp",
+          "/Users/abbykaur/Downloads/inout-oram copy/src/threadpool/./synch.cpp",
+          "/Users/abbykaur/Downloads/inout-oram copy/src/threadpool/./threadpool.cpp"
+        ],
+        "generated_sources": [],
+        "unity_sources": []
+      },
+      {
+        "linker": [
+          "c++"
+        ],
+        "parameters": [
+          "-Wl,-dead_strip_dylibs",
+          "-Wl,-headerpad_max_install_names",
+          "-Wl,-rpath,/opt/homebrew/Cellar/openssl@3/3.4.1/lib",
+          "-Wl,-rpath,/opt/homebrew/Cellar/spdlog/1.15.1/lib",
+          "-Wl,-rpath,/opt/homebrew/Cellar/fmt/11.1.4/lib",
+          "/opt/homebrew/Cellar/openssl@3/3.4.1/lib/libssl.dylib",
+          "/opt/homebrew/Cellar/openssl@3/3.4.1/lib/libcrypto.dylib",
+          "/opt/homebrew/Cellar/spdlog/1.15.1/lib/libspdlog.dylib",
+          "-pthread",
+          "/opt/homebrew/Cellar/fmt/11.1.4/lib/libfmt.dylib"
+        ]
+      }
+    ],
+    "extra_files": [],
+    "subproject": null,
+    "dependencies": [
+      "openssl",
+      "spdlog"
+    ],
+    "depends": [],
+    "win_subsystem": "console",
+    "installed": false
+  },
+  {
+    "name": "test_pathoram",
+    "id": "9f86d08@@test_pathoram@exe",
+    "type": "executable",
+    "defined_in": "/Users/abbykaur/Downloads/inout-oram copy/src/test/meson.build",
+    "filename": [
+      "/Users/abbykaur/Downloads/inout-oram copy/src/build/test/test_pathoram"
+    ],
+    "build_by_default": true,
+    "target_sources": [
+      {
+        "language": "cpp",
+        "machine": "host",
+        "compiler": [
+          "c++"
+        ],
+        "parameters": [
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/test/test_pathoram.p",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/test",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/test",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/core",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/core",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/thirdparty/external/tomlplusplus",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/threadpool",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/threadpool",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/build/utils",
+          "-I/Users/abbykaur/Downloads/inout-oram copy/src/utils",
+          "-I/opt/homebrew/Cellar/openssl@3/3.4.1/include",
+          "-I/opt/homebrew/Cellar/spdlog/1.15.1/include",
+          "-I/opt/homebrew/Cellar/fmt/11.1.4/include",
+          "-fvisibility=default",
+          "-fdiagnostics-color=always",
+          "-Wall",
+          "-Winvalid-pch",
+          "-Wextra",
+          "-Wpedantic",
+          "-std=c++20",
+          "-O0",
+          "-g",
+          "-Wno-unused-parameter",
+          "-Wno-unused-variable",
+          "-Wno-unused-private-field",
+          "-DSPDLOG_SHARED_LIB",
+          "-DSPDLOG_COMPILED_LIB",
+          "-DSPDLOG_FMT_EXTERNAL"
+        ],
+        "sources": [
+          "/Users/abbykaur/Downloads/inout-oram copy/src/test/app_test_base_oram.cpp",
+          "/Users/abbykaur/Downloads/inout-oram copy/src/threadpool/./synch.cpp",
+          "/Users/abbykaur/Downloads/inout-oram copy/src/threadpool/./threadpool.cpp"
+        ],
+        "generated_sources": [],
+        "unity_sources": []
+      },
+      {
+        "linker": [
+          "c++"
+        ],
+        "parameters": [
+          "-Wl,-dead_strip_dylibs",
+          "-Wl,-headerpad_max_install_names",
+          "-Wl,-rpath,/opt/homebrew/Cellar/openssl@3/3.4.1/lib",
+          "-Wl,-rpath,/opt/homebrew/Cellar/spdlog/1.15.1/lib",
+          "-Wl,-rpath,/opt/homebrew/Cellar/fmt/11.1.4/lib",
+          "/opt/homebrew/Cellar/openssl@3/3.4.1/lib/libssl.dylib",
+          "/opt/homebrew/Cellar/openssl@3/3.4.1/lib/libcrypto.dylib",
+          "/opt/homebrew/Cellar/spdlog/1.15.1/lib/libspdlog.dylib",
+          "-pthread",
+          "/opt/homebrew/Cellar/fmt/11.1.4/lib/libfmt.dylib"
+        ]
+      }
+    ],
+    "extra_files": [],
+    "subproject": null,
+    "dependencies": [
+      "openssl",
+      "spdlog"
+    ],
+    "depends": [],
+    "win_subsystem": "console",
+    "installed": false
+  }
+]

@@ -1,0 +1,159 @@
+[
+  {
+    "name": "openssl",
+    "type": "pkgconfig",
+    "version": "3.4.1",
+    "compile_args": [
+      "-I/opt/homebrew/Cellar/openssl@3/3.4.1/include"
+    ],
+    "link_args": [
+      "/opt/homebrew/Cellar/openssl@3/3.4.1/lib/libssl.dylib",
+      "/opt/homebrew/Cellar/openssl@3/3.4.1/lib/libcrypto.dylib"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "openssl_dep"
+    ]
+  },
+  {
+    "name": "threads",
+    "type": "system",
+    "version": "unknown",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "thread_dep"
+    ]
+  },
+  {
+    "name": "spdlog",
+    "type": "pkgconfig",
+    "version": "1.15.1",
+    "compile_args": [
+      "-I/opt/homebrew/Cellar/spdlog/1.15.1/include",
+      "-DSPDLOG_SHARED_LIB",
+      "-DSPDLOG_COMPILED_LIB",
+      "-DSPDLOG_FMT_EXTERNAL",
+      "-I/opt/homebrew/Cellar/fmt/11.1.4/include"
+    ],
+    "link_args": [
+      "/opt/homebrew/Cellar/spdlog/1.15.1/lib/libspdlog.dylib",
+      "-pthread",
+      "/opt/homebrew/Cellar/fmt/11.1.4/lib/libfmt.dylib"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "spdlog_dep"
+    ]
+  },
+  {
+    "name": "dep240995384856738128090993820063777540027",
+    "type": "internal",
+    "version": "0.1",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [
+      "/Users/abbykaur/Downloads/inout-oram copy/src/thirdparty/external/tomlplusplus",
+      "/Users/abbykaur/Downloads/inout-oram copy/src/build/thirdparty/external/tomlplusplus"
+    ],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "tomlpp_dep"
+    ]
+  },
+  {
+    "name": "dep37316176332613809451953670912606423584",
+    "type": "internal",
+    "version": "0.1",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [
+      "/Users/abbykaur/Downloads/inout-oram copy/src/threadpool/.",
+      "/Users/abbykaur/Downloads/inout-oram copy/src/build/threadpool/."
+    ],
+    "sources": [
+      "/Users/abbykaur/Downloads/inout-oram copy/src/threadpool/./synch.cpp",
+      "/Users/abbykaur/Downloads/inout-oram copy/src/threadpool/./threadpool.cpp"
+    ],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "threadpool_dep"
+    ]
+  },
+  {
+    "name": "dep151115469923143250443327483583906714301",
+    "type": "internal",
+    "version": "0.1",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [
+      "/Users/abbykaur/Downloads/inout-oram copy/src/core/.",
+      "/Users/abbykaur/Downloads/inout-oram copy/src/build/core/."
+    ],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [
+      "dep240995384856738128090993820063777540027"
+    ],
+    "depends": [],
+    "meson_variables": [
+      "core_dep"
+    ]
+  },
+  {
+    "name": "dep36098582333959181044451072880244886870",
+    "type": "internal",
+    "version": "0.1",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [
+      "/Users/abbykaur/Downloads/inout-oram copy/src/utils/.",
+      "/Users/abbykaur/Downloads/inout-oram copy/src/build/utils/."
+    ],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "util_dep"
+    ]
+  },
+  {
+    "name": "dep256991064892780758429096304597716903987",
+    "type": "internal",
+    "version": "0.1",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [
+      "/Users/abbykaur/Downloads/inout-oram copy/src/seal",
+      "/Users/abbykaur/Downloads/inout-oram copy/src/build/seal"
+    ],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [
+      "seal@sta"
+    ],
+    "meson_variables": [
+      "seal_dep"
+    ]
+  }
+]

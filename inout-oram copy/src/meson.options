@@ -1,0 +1,6 @@
+option(
+    'tracy_profiler',
+    type: 'boolean',
+    value: false,
+    description: 'enable tracy profiler',
+)

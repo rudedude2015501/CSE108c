@@ -1,0 +1,104 @@
+{
+  "host": {
+    "c": {
+      "id": "clang",
+      "exelist": [
+        "cc"
+      ],
+      "linker_exelist": [
+        "cc"
+      ],
+      "file_suffixes": [
+        "c"
+      ],
+      "default_suffix": "c",
+      "version": "14.0.0",
+      "full_version": "Apple clang version 14.0.0 (clang-1400.0.29.202)",
+      "linker_id": "ld64"
+    },
+    "cpp": {
+      "id": "clang",
+      "exelist": [
+        "c++"
+      ],
+      "linker_exelist": [
+        "c++"
+      ],
+      "file_suffixes": [
+        "cpp",
+        "cppm",
+        "cc",
+        "cp",
+        "cxx",
+        "c++",
+        "hh",
+        "hp",
+        "hpp",
+        "ipp",
+        "hxx",
+        "h++",
+        "ino",
+        "ixx",
+        "CPP",
+        "C",
+        "HPP",
+        "H"
+      ],
+      "default_suffix": "cpp",
+      "version": "14.0.0",
+      "full_version": "Apple clang version 14.0.0 (clang-1400.0.29.202)",
+      "linker_id": "ld64"
+    }
+  },
+  "build": {
+    "c": {
+      "id": "clang",
+      "exelist": [
+        "cc"
+      ],
+      "linker_exelist": [
+        "cc"
+      ],
+      "file_suffixes": [
+        "c"
+      ],
+      "default_suffix": "c",
+      "version": "14.0.0",
+      "full_version": "Apple clang version 14.0.0 (clang-1400.0.29.202)",
+      "linker_id": "ld64"
+    },
+    "cpp": {
+      "id": "clang",
+      "exelist": [
+        "c++"
+      ],
+      "linker_exelist": [
+        "c++"
+      ],
+      "file_suffixes": [
+        "cpp",
+        "cppm",
+        "cc",
+        "cp",
+        "cxx",
+        "c++",
+        "hh",
+        "hp",
+        "hpp",
+        "ipp",
+        "hxx",
+        "h++",
+        "ino",
+        "ixx",
+        "CPP",
+        "C",
+        "HPP",
+        "H"
+      ],
+      "default_suffix": "cpp",
+      "version": "14.0.0",
+      "full_version": "Apple clang version 14.0.0 (clang-1400.0.29.202)",
+      "linker_id": "ld64"
+    }
+  }
+}

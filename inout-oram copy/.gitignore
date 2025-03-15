@@ -1,0 +1,4 @@
+./src/storage/*
+./src/.cache/*
+./docs/venv/*
+

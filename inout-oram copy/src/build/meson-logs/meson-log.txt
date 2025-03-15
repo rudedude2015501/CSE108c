@@ -1,0 +1,708 @@
+Build started at 2025-03-14T16:13:58.561606
+Main binary: /opt/homebrew/opt/python@3.13/bin/python3.13
+Build Options: 
+Python system: Darwin
+The Meson build system
+Version: 1.7.0
+Source dir: /Users/abbykaur/Downloads/inout-oram copy/src
+Build dir: /Users/abbykaur/Downloads/inout-oram copy/src/build
+Build type: native build
+WARNING: Project does not target a minimum version but uses feature introduced in '1.1': meson.options file. Use meson_options.txt instead
+Project name: io-oram
+Project version: 0.1
+-----------
+Detecting compiler via: `cc --version` -> 0
+stdout:
+Apple clang version 14.0.0 (clang-1400.0.29.202)
+Target: arm64-apple-darwin22.2.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+-----------
+Running command: -x c -E -dM -
+-----
+-----------
+Detecting linker via: `cc -Wl,--version` -> 1
+stderr:
+ld: unknown option: --version
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+-----------
+-----------
+Detecting Apple linker via: `cc -Wl,-v` -> 1
+stderr:
+@(#)PROGRAM:ld  PROJECT:ld64-820.1
+BUILD 20:07:05 Nov  7 2022
+configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
+Library search paths:
+	/usr/local/lib
+	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
+Framework search paths:
+	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/
+Undefined symbols for architecture arm64:
+  "_main", referenced from:
+     implicit entry/start for main executable
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+-----------
+Sanity testing C compiler: cc
+Is cross compiler: False.
+Sanity check compiler command line: cc sanitycheckc.c -o sanitycheckc.exe
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command:  '/Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/sanitycheckc.exe'
+C compiler for the host machine: cc (clang 14.0.0 "Apple clang version 14.0.0 (clang-1400.0.29.202)")
+C linker for the host machine: cc ld64 820.1
+-----------
+Detecting archiver via: `llvm-ar-14 --version` -> [Errno 2] No such file or directory: 'llvm-ar-14'
+-----------
+Detecting archiver via: `llvm-ar --version` -> [Errno 2] No such file or directory: 'llvm-ar'
+-----------
+Detecting archiver via: `ar --version` -> 1
+stderr:
+usage:  ar -d [-TLsv] archive file ...
+	ar -m [-TLsv] archive file ...
+	ar -m [-abiTLsv] position archive file ...
+	ar -p [-TLsv] archive [file ...]
+	ar -q [-cTLsv] archive file ...
+	ar -r [-cuTLsv] archive file ...
+	ar -r [-abciuTLsv] position archive file ...
+	ar -t [-TLsv] archive [file ...]
+	ar -x [-ouTLsv] archive [file ...]
+-----------
+-----------
+Detecting compiler via: `c++ --version` -> 0
+stdout:
+Apple clang version 14.0.0 (clang-1400.0.29.202)
+Target: arm64-apple-darwin22.2.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+-----------
+Running command: -x c++ -E -dM -
+-----
+-----------
+Detecting linker via: `c++ -Wl,--version` -> 1
+stderr:
+ld: unknown option: --version
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+-----------
+-----------
+Detecting Apple linker via: `c++ -Wl,-v` -> 1
+stderr:
+@(#)PROGRAM:ld  PROJECT:ld64-820.1
+BUILD 20:07:05 Nov  7 2022
+configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
+Library search paths:
+	/usr/local/lib
+	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
+Framework search paths:
+	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/
+Undefined symbols for architecture arm64:
+  "_main", referenced from:
+     implicit entry/start for main executable
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+-----------
+Sanity testing C++ compiler: c++
+Is cross compiler: False.
+Sanity check compiler command line: c++ sanitycheckcpp.cc -o sanitycheckcpp.exe
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command:  '/Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/sanitycheckcpp.exe'
+C++ compiler for the host machine: c++ (clang 14.0.0 "Apple clang version 14.0.0 (clang-1400.0.29.202)")
+C++ linker for the host machine: c++ ld64 820.1
+-----------
+Detecting compiler via: `cc --version` -> 0
+stdout:
+Apple clang version 14.0.0 (clang-1400.0.29.202)
+Target: arm64-apple-darwin22.2.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+-----------
+Running command: -x c -E -dM -
+-----
+-----------
+Detecting linker via: `cc -Wl,--version` -> 1
+stderr:
+ld: unknown option: --version
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+-----------
+-----------
+Detecting Apple linker via: `cc -Wl,-v` -> 1
+stderr:
+@(#)PROGRAM:ld  PROJECT:ld64-820.1
+BUILD 20:07:05 Nov  7 2022
+configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
+Library search paths:
+	/usr/local/lib
+	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
+Framework search paths:
+	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/
+Undefined symbols for architecture arm64:
+  "_main", referenced from:
+     implicit entry/start for main executable
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+-----------
+Sanity testing C compiler: cc
+Is cross compiler: False.
+Sanity check compiler command line: cc sanitycheckc.c -o sanitycheckc.exe
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command:  '/Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/sanitycheckc.exe'
+C compiler for the build machine: cc (clang 14.0.0 "Apple clang version 14.0.0 (clang-1400.0.29.202)")
+C linker for the build machine: cc ld64 820.1
+-----------
+Detecting archiver via: `llvm-ar-14 --version` -> [Errno 2] No such file or directory: 'llvm-ar-14'
+-----------
+Detecting archiver via: `llvm-ar --version` -> [Errno 2] No such file or directory: 'llvm-ar'
+-----------
+Detecting archiver via: `ar --version` -> 1
+stderr:
+usage:  ar -d [-TLsv] archive file ...
+	ar -m [-TLsv] archive file ...
+	ar -m [-abiTLsv] position archive file ...
+	ar -p [-TLsv] archive [file ...]
+	ar -q [-cTLsv] archive file ...
+	ar -r [-cuTLsv] archive file ...
+	ar -r [-abciuTLsv] position archive file ...
+	ar -t [-TLsv] archive [file ...]
+	ar -x [-ouTLsv] archive [file ...]
+-----------
+-----------
+Detecting compiler via: `c++ --version` -> 0
+stdout:
+Apple clang version 14.0.0 (clang-1400.0.29.202)
+Target: arm64-apple-darwin22.2.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+-----------
+Running command: -x c++ -E -dM -
+-----
+-----------
+Detecting linker via: `c++ -Wl,--version` -> 1
+stderr:
+ld: unknown option: --version
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+-----------
+-----------
+Detecting Apple linker via: `c++ -Wl,-v` -> 1
+stderr:
+@(#)PROGRAM:ld  PROJECT:ld64-820.1
+BUILD 20:07:05 Nov  7 2022
+configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
+Library search paths:
+	/usr/local/lib
+	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
+Framework search paths:
+	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/
+Undefined symbols for architecture arm64:
+  "_main", referenced from:
+     implicit entry/start for main executable
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+-----------
+Sanity testing C++ compiler: c++
+Is cross compiler: False.
+Sanity check compiler command line: c++ sanitycheckcpp.cc -o sanitycheckcpp.exe
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command:  '/Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/sanitycheckcpp.exe'
+C++ compiler for the build machine: c++ (clang 14.0.0 "Apple clang version 14.0.0 (clang-1400.0.29.202)")
+C++ linker for the build machine: c++ ld64 820.1
+Build machine cpu family: aarch64
+Build machine cpu: aarch64
+Host machine cpu family: aarch64
+Host machine cpu: aarch64
+Target machine cpu family: aarch64
+Target machine cpu: aarch64
+Pkg-config binary missing from cross or native file, or env var undefined.
+Trying a default Pkg-config fallback at pkg-config
+Found pkg-config: YES (/opt/homebrew/bin/pkg-config) 2.3.0
+Determining dependency 'openssl' with pkg-config executable '/opt/homebrew/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /opt/homebrew/bin/pkg-config
+-----------
+Called: `/opt/homebrew/bin/pkg-config --modversion openssl` -> 0
+stdout:
+3.4.1
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /opt/homebrew/bin/pkg-config
+-----------
+Called: `/opt/homebrew/bin/pkg-config --cflags openssl` -> 0
+stdout:
+-I/opt/homebrew/Cellar/openssl@3/3.4.1/include
+-----------
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /opt/homebrew/bin/pkg-config
+-----------
+Called: `/opt/homebrew/bin/pkg-config --libs openssl` -> 0
+stdout:
+-L/opt/homebrew/Cellar/openssl@3/3.4.1/lib -lssl -lcrypto
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /opt/homebrew/bin/pkg-config
+-----------
+Called: `/opt/homebrew/bin/pkg-config --libs openssl` -> 0
+stdout:
+-L/opt/homebrew/Cellar/openssl@3/3.4.1/lib -lssl -lcrypto
+-----------
+Running compile:
+Working directory:  /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmph78gj7v1
+Code:
+
+        #include<stddef.h>
+        #include<stdio.h>
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(void *)));
+            return 0;
+        }
+-----------
+Command line: `c++ '/Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmph78gj7v1/testfile.cpp' -o '/Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmph78gj7v1/output.exe' -O0 -fpermissive -Werror=implicit-function-declaration` -> 0
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Running compile:
+Working directory:  /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpyaoci2ry
+Code:
+
+-----------
+Command line: `c++ '/Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpyaoci2ry/testfile.cpp' -o '/Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpyaoci2ry/output.obj' -c -O0 -fpermissive -Werror=implicit-function-declaration -Werror=unknown-warning-option -Werror=unused-command-line-argument -Werror=ignored-optimization-argument --print-search-dirs` -> 0
+stdout:
+programs: =/Library/Developer/CommandLineTools/usr/bin
+libraries: =/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0
+-----------
+Run-time dependency openssl found: YES 3.4.1
+Message: using c compiler: clang 14.0.0
+Message: using c++ compiler: clang 14.0.0
+Run-time dependency threads found: YES
+Determining dependency 'spdlog' with pkg-config executable '/opt/homebrew/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /opt/homebrew/bin/pkg-config
+-----------
+Called: `/opt/homebrew/bin/pkg-config --modversion spdlog` -> 0
+stdout:
+1.15.1
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /opt/homebrew/bin/pkg-config
+-----------
+Called: `/opt/homebrew/bin/pkg-config --cflags spdlog` -> 0
+stdout:
+-I/opt/homebrew/Cellar/spdlog/1.15.1/include -DSPDLOG_SHARED_LIB -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -I/opt/homebrew/Cellar/fmt/11.1.4/include
+-----------
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /opt/homebrew/bin/pkg-config
+-----------
+Called: `/opt/homebrew/bin/pkg-config --libs spdlog` -> 0
+stdout:
+-L/opt/homebrew/Cellar/spdlog/1.15.1/lib -lspdlog -pthread -L/opt/homebrew/Cellar/fmt/11.1.4/lib -lfmt
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /opt/homebrew/bin/pkg-config
+-----------
+Called: `/opt/homebrew/bin/pkg-config --libs spdlog` -> 0
+stdout:
+-L/opt/homebrew/Cellar/spdlog/1.15.1/lib -lspdlog -pthread -L/opt/homebrew/Cellar/fmt/11.1.4/lib -lfmt
+-----------
+Run-time dependency spdlog found: YES 1.15.1
+Build targets in project: 4
+WARNING: Project specifies no minimum version but uses features which were added in versions:
+ * 1.1: {'meson.options file'}
+
+Found ninja-1.12.1 at /opt/homebrew/bin/ninja
+Running compile:
+Working directory:  /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmp_fu3t2sd
+Code:
+
+        #ifdef __has_include
+         #if !__has_include("version")
+          #error "Header 'version' could not be found"
+         #endif
+        #else
+         #include <version>
+        #endif
+-----------
+Command line: `c++ '/Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmp_fu3t2sd/testfile.cpp' -E -P -P -O0 -fpermissive -Werror=implicit-function-declaration` -> 0
+Running compile:
+Working directory:  /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p
+Code:
+
+        #include <version>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef _LIBCPP_VERSION
+                _LIBCPP_VERSION;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `c++ '/Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/testfile.cpp' -o '/Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/output.obj' -c -O0 -fpermissive -Werror=implicit-function-declaration -Werror=unknown-warning-option -Werror=unused-command-line-argument -Werror=ignored-optimization-argument` -> 0
+Running compile:
+Working directory:  /var/folders/d4/956qn1pn40z53s8fnxvlk_jh0000gn/T/tmp3p900di7
+Code:
+int i = static_cast<int>(0);
+-----------
+Command line: `c++ /var/folders/d4/956qn1pn40z53s8fnxvlk_jh0000gn/T/tmp3p900di7/testfile.cpp -o /var/folders/d4/956qn1pn40z53s8fnxvlk_jh0000gn/T/tmp3p900di7/output.obj -c -std=c++20` -> 0
+Compiler accepts -std=c++20: YES
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmp_fu3t2sd/testfile.cpp -E -P -P -O0 -fpermissive -Werror=implicit-function-declaration 
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("version")
+          #error "Header 'version' could not be found"
+         #endif
+        #else
+         #include <version>
+        #endif
+Cached compiler stdout:
+ 
+
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/testfile.cpp -o /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/output.obj -c -O0 -fpermissive -Werror=implicit-function-declaration -Werror=unknown-warning-option -Werror=unused-command-line-argument -Werror=ignored-optimization-argument 
+
+Code:
+ 
+        #include <version>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef _LIBCPP_VERSION
+                _LIBCPP_VERSION;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmp_fu3t2sd/testfile.cpp -E -P -P -O0 -fpermissive -Werror=implicit-function-declaration 
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("version")
+          #error "Header 'version' could not be found"
+         #endif
+        #else
+         #include <version>
+        #endif
+Cached compiler stdout:
+ 
+
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/testfile.cpp -o /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/output.obj -c -O0 -fpermissive -Werror=implicit-function-declaration -Werror=unknown-warning-option -Werror=unused-command-line-argument -Werror=ignored-optimization-argument 
+
+Code:
+ 
+        #include <version>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef _LIBCPP_VERSION
+                _LIBCPP_VERSION;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmp_fu3t2sd/testfile.cpp -E -P -P -O0 -fpermissive -Werror=implicit-function-declaration 
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("version")
+          #error "Header 'version' could not be found"
+         #endif
+        #else
+         #include <version>
+        #endif
+Cached compiler stdout:
+ 
+
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/testfile.cpp -o /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/output.obj -c -O0 -fpermissive -Werror=implicit-function-declaration -Werror=unknown-warning-option -Werror=unused-command-line-argument -Werror=ignored-optimization-argument 
+
+Code:
+ 
+        #include <version>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef _LIBCPP_VERSION
+                _LIBCPP_VERSION;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmp_fu3t2sd/testfile.cpp -E -P -P -O0 -fpermissive -Werror=implicit-function-declaration 
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("version")
+          #error "Header 'version' could not be found"
+         #endif
+        #else
+         #include <version>
+        #endif
+Cached compiler stdout:
+ 
+
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/testfile.cpp -o /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/output.obj -c -O0 -fpermissive -Werror=implicit-function-declaration -Werror=unknown-warning-option -Werror=unused-command-line-argument -Werror=ignored-optimization-argument 
+
+Code:
+ 
+        #include <version>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef _LIBCPP_VERSION
+                _LIBCPP_VERSION;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmp_fu3t2sd/testfile.cpp -E -P -P -O0 -fpermissive -Werror=implicit-function-declaration 
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("version")
+          #error "Header 'version' could not be found"
+         #endif
+        #else
+         #include <version>
+        #endif
+Cached compiler stdout:
+ 
+
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/testfile.cpp -o /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/output.obj -c -O0 -fpermissive -Werror=implicit-function-declaration -Werror=unknown-warning-option -Werror=unused-command-line-argument -Werror=ignored-optimization-argument 
+
+Code:
+ 
+        #include <version>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef _LIBCPP_VERSION
+                _LIBCPP_VERSION;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmp_fu3t2sd/testfile.cpp -E -P -P -O0 -fpermissive -Werror=implicit-function-declaration 
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("version")
+          #error "Header 'version' could not be found"
+         #endif
+        #else
+         #include <version>
+        #endif
+Cached compiler stdout:
+ 
+
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/testfile.cpp -o /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/output.obj -c -O0 -fpermissive -Werror=implicit-function-declaration -Werror=unknown-warning-option -Werror=unused-command-line-argument -Werror=ignored-optimization-argument 
+
+Code:
+ 
+        #include <version>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef _LIBCPP_VERSION
+                _LIBCPP_VERSION;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmp_fu3t2sd/testfile.cpp -E -P -P -O0 -fpermissive -Werror=implicit-function-declaration 
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("version")
+          #error "Header 'version' could not be found"
+         #endif
+        #else
+         #include <version>
+        #endif
+Cached compiler stdout:
+ 
+
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/testfile.cpp -o /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/output.obj -c -O0 -fpermissive -Werror=implicit-function-declaration -Werror=unknown-warning-option -Werror=unused-command-line-argument -Werror=ignored-optimization-argument 
+
+Code:
+ 
+        #include <version>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef _LIBCPP_VERSION
+                _LIBCPP_VERSION;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmp_fu3t2sd/testfile.cpp -E -P -P -O0 -fpermissive -Werror=implicit-function-declaration 
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("version")
+          #error "Header 'version' could not be found"
+         #endif
+        #else
+         #include <version>
+        #endif
+Cached compiler stdout:
+ 
+
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/testfile.cpp -o /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/output.obj -c -O0 -fpermissive -Werror=implicit-function-declaration -Werror=unknown-warning-option -Werror=unused-command-line-argument -Werror=ignored-optimization-argument 
+
+Code:
+ 
+        #include <version>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef _LIBCPP_VERSION
+                _LIBCPP_VERSION;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmp_fu3t2sd/testfile.cpp -E -P -P -O0 -fpermissive -Werror=implicit-function-declaration 
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("version")
+          #error "Header 'version' could not be found"
+         #endif
+        #else
+         #include <version>
+        #endif
+Cached compiler stdout:
+ 
+
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/testfile.cpp -o /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/output.obj -c -O0 -fpermissive -Werror=implicit-function-declaration -Werror=unknown-warning-option -Werror=unused-command-line-argument -Werror=ignored-optimization-argument 
+
+Code:
+ 
+        #include <version>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef _LIBCPP_VERSION
+                _LIBCPP_VERSION;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmp_fu3t2sd/testfile.cpp -E -P -P -O0 -fpermissive -Werror=implicit-function-declaration 
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("version")
+          #error "Header 'version' could not be found"
+         #endif
+        #else
+         #include <version>
+        #endif
+Cached compiler stdout:
+ 
+
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:  c++ /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/testfile.cpp -o /Users/abbykaur/Downloads/inout-oram copy/src/build/meson-private/tmpvneror4p/output.obj -c -O0 -fpermissive -Werror=implicit-function-declaration -Werror=unknown-warning-option -Werror=unused-command-line-argument -Werror=ignored-optimization-argument 
+
+Code:
+ 
+        #include <version>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef _LIBCPP_VERSION
+                _LIBCPP_VERSION;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
