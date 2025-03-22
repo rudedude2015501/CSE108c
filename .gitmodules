@@ -1,0 +1,3 @@
+[submodule "inout-oram copy/src/seal/spdlog"]
+	path = inout-oram copy/src/seal/spdlog
+	url = https://github.com/gabime/spdlog.git
