@@ -13,5 +13,12 @@ Node.py = to create a full working binary tree
 
 readccsv.py =  file is meant to make parsing and converting the snapshot of a CSV file into blocks that can be accessed and read across a client,server model
 
+SEAL implementation
+How to run - go into inout-oram copy
+1.Go into seal directory 
+2. run g++ -o test_qrsr seal_attacks.cpp -I.. -I../core -I../threadpool -I../utils -I./spdlog/include -I/opt/homebrew/opt/openssl@3/include -L/opt/homebrew/opt/openssl@3/lib -lssl -lcrypto -std=c++17
+3. ./test_qrsr 
+
+
 
 
